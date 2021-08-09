@@ -1,7 +1,8 @@
 
 const MovingObject = require("./moving_object");
 const Util = require("./utils")
-const Asteroid = require("./asteroid")
+const Asteroid = require("./asteroid");
+const GameView = require("./game_view");
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas");
@@ -9,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.height = 900;
   const ctx = canvas.getContext("2d");
   window.ctx = ctx;
+
+  // let gameView = new GameView(ctx);
+  // gameView.start();
+  
+
 
   // const mo = new MovingObject({
   //   pos: [30, 30],
@@ -19,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // mo.draw(ctx);
 });
+
+
 
 console.log("Webpack is working")
 
