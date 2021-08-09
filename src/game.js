@@ -2,7 +2,7 @@ const Asteroid = require("./asteroid.js");
 
 const DIM_X = 1600;
 const DIM_Y = 900;
-const NUM_ASTEROIDS = 10;
+const NUM_ASTEROIDS = 6;
 
 
 function Game() {
@@ -43,6 +43,8 @@ Game.prototype.checkCollisions = function() {
     for(let i = 0; i < this.asteroids.length; i++) {
         for (let j = i + 1; j < this.asteroids.length; j++) {
             if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
+                this.remove(i);
+                this.remove(j);
                 alert("collision");
             }
         }
@@ -50,6 +52,17 @@ Game.prototype.checkCollisions = function() {
 }
 
 
+Game.prototype.step = function() {
+    this.moveObjects();
+    this.checkCollisions();
+}
+
+
+Game.prototype.remove = function(idx) {
+    // asteroid = undefined;
+    // debugger;
+    this.asteroids.splice(idx, 1);
+}
 
 // Game.prototype.wrap = function(pos) {
 //     if (pos[0] > DIM_X) {
