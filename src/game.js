@@ -43,11 +43,11 @@ Game.prototype.checkCollisions = function() {
     for(let i = 0; i < this.asteroids.length; i++) {
         for (let j = i + 1; j < this.asteroids.length; j++) {
             if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
-                this.remove(i);
-                this.remove(j);
+                this.remove(i, j);
                 alert("collision");
             }
         }
+        console.log(`number of asteroids: ${this.asteroids.length}`);
     }
 }
 
@@ -58,10 +58,17 @@ Game.prototype.step = function() {
 }
 
 
-Game.prototype.remove = function(idx) {
+Game.prototype.remove = function(i, j) {
     // asteroid = undefined;
     // debugger;
-    this.asteroids.splice(idx, 1);
+    if (i > j) {
+        this.asteroids.splice(i, 1);
+        this.asteroids.splice(j, 1);
+    }
+    else {
+        this.asteroids.splice(j, 1);
+        this.asteroids.splice(i, 1);
+    }
 }
 
 // Game.prototype.wrap = function(pos) {
