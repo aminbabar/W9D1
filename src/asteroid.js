@@ -7,7 +7,7 @@ const Util = require("./utils.js");
 function Asteroid(options) {
 
     options.color = options.color || "blue";
-    options.pos = options.pos || [100, 100];
+    options.pos = options.pos || [0, 0];
     // random bww 0 and 10 Math.ceil(Math.random() * 10)
     options.vel = options.vel || Util.randomVec(Math.ceil(Math.random() * 10));
     let min = Math.ceil(5);

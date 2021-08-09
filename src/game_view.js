@@ -1,6 +1,9 @@
-const Asteroid = require("./game.js");
+// const Asteroid = require("./asteroid.js");
+
+const Game = require("./game.js");
 
 function GameView(ctx) {
+    
      this.game = new Game();
      this.ctx = ctx;
 }
@@ -13,5 +16,6 @@ GameView.prototype.start = function() {
     }, 20)
 }
 
+window.GameView = GameView;
 
 module.exports = GameView;
