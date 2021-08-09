@@ -1,25 +1,58 @@
-import _ from 'lodash';
 
-function component() {
-  const element = document.createElement('div');
+const MovingObject = require("./moving_object");
+const Util = require("./utils")
+const Asteroid = require("./asteroid")
 
-  // Lodash, currently included via a script, is required for this line to work
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("canvas");
+  canvas.width = 1600;
+  canvas.height = 900;
+  const ctx = canvas.getContext("2d");
+  window.ctx = ctx;
 
-  return element;
-}
-const MovingObject = require("./moving_object.js");
+  // const mo = new MovingObject({
+  //   pos: [30, 30],
+  //   vel: [10, 10],
+  //   radius: 5,
+  //   color: "#00FF00"
+  // });
 
-window.MovingObject = MovingObject;
-
-const mo = new MovingObject({
-  pos: [30, 30],
-  vel: [10, 10],
-  radius: 5,
-  color: "#00FF00"
+  // mo.draw(ctx);
 });
-console.log(mo)
 
 console.log("Webpack is working")
-document.body.appendChild(component());
+
+
+// import _ from 'lodash';
+
+
+// function component() {
+//   const element = document.createElement('div');
+
+//   document.addEventListener("DOMContentLoaded", () => {
+//     const canvas = document.getElementById("canvas");
+//     const ctx = canvas.getContext("2d");
+//   });
+
+//   // Lodash, currently included via a script, is required for this line to work
+//   // Lodash, now imported by this script
+//   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+//   return element;
+// }
+
+
+
+// console.log("Webpack is working")
+// document.body.appendChild(component());
+
+
+
+// console.log("in index.js")
+
+// const Game = require("./game")
+// const MovingObject = require("./moving_object")
+
+
+// const game = new Game()
+// console.log(game)
